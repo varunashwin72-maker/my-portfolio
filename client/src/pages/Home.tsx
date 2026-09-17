@@ -89,6 +89,7 @@ const stack = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const sections = ["top", ...navItems.map((item) => item.href.slice(1))]
@@ -109,11 +110,22 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => {
+      setPointer({ x: event.clientX, y: event.clientY });
+      document.documentElement.style.setProperty("--pointer-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--pointer-y", `${event.clientY}px`);
+    };
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", handlePointerMove);
+  }, []);
+
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <div className="site-shell" id="top">
       <div className="ambient-grid" aria-hidden="true" />
+      <div className="cursor-glow" aria-hidden="true" />
       <header className="site-nav">
         <a className="brand-mark" href="#top" onClick={closeMenu} aria-label="Back to top">
           <span className="brand-glyph">⌘</span>
@@ -178,7 +190,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-console reveal-up delay-2" aria-label="Developer profile summary">
+          <div
+            className="hero-console reveal-up delay-2"
+            aria-label="Developer profile summary"
+            style={{
+              transform: `perspective(900px) rotateY(${(pointer.x / window.innerWidth - 0.5) * 3}deg) rotateX(${(0.5 - pointer.y / window.innerHeight) * 3}deg)`,
+            }}
+          >
             <div className="console-topbar">
               <span className="console-dots"><i /><i /><i /></span>
               <span>~/profile/now.ts</span>
@@ -240,7 +258,7 @@ export default function Home() {
           </div>
           <div className="project-grid">
             {projects.map((project) => (
-              <article className={`project-card accent-${project.accent}`} key={project.number}>
+              <article className={`project-card accent-${project.accent}`} key={project.number} tabIndex={0}>
                 <div className="project-card-top"><span className="project-number">{project.number}</span><ArrowUpRight size={20} /></div>
                 <div className="project-visual" aria-hidden="true"><div className="visual-rings"><span /><span /><span /></div><div className="visual-code"><span>01</span><span>10</span><span>01</span><span>11</span><span>00</span><span>10</span></div></div>
                 <h3>{project.title}</h3>
