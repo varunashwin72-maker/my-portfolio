@@ -31,59 +31,44 @@ const navItems = [
 const projects = [
   {
     number: "01",
-    title: "Signal / observability for teams",
+    title: "Aether Weather / premium weather app",
     description:
-      "A focused observability layer that turns noisy production data into calm, actionable signals for fast-moving product teams.",
-    tags: ["TypeScript", "Node.js", "Postgres"],
+      "A modern, responsive weather application delivering clear real-time conditions, forecasts, location search, and practical weather awareness.",
+    details: [
+      "Developed a modern, responsive weather application focused on delivering clear and useful real-time weather information.",
+      "Integrated weather APIs to display temperature, humidity, wind speed, precipitation, weather conditions, and forecast information.",
+      "Implemented location-based weather search and dynamically updated weather data for a better user experience.",
+      "Designed an interactive and visually appealing interface with responsive layouts and user-friendly navigation.",
+      "Applied React, TypeScript, JavaScript, API integration, Git, and GitHub during development.",
+      "Focused on practical problem-solving, clean component-based development, and creating a useful application for everyday weather awareness.",
+    ],
+    tags: ["React", "TypeScript", "REST APIs"],
     accent: "lime",
-  },
-  {
-    number: "02",
-    title: "Atlas / workflow orchestration",
-    description:
-      "A resilient workflow engine for long-running jobs, human approvals, and the unglamorous edge cases that make systems dependable.",
-    tags: ["Go", "Redis", "Kubernetes"],
-    accent: "blue",
-  },
-  {
-    number: "03",
-    title: "Foundry / design systems",
-    description:
-      "A shared component language that helped three product squads ship faster without losing craft, clarity, or accessibility.",
-    tags: ["React", "Storybook", "A11y"],
-    accent: "violet",
   },
 ];
 
 const experiences = [
   {
-    period: "2022 — now",
-    role: "Senior Software Engineer",
-    company: "Independent / product teams",
+    period: "CURRENT",
+    role: "Diploma — 3rd Year",
+    company: "A.A.N.M & V.V.R.S.R Polytechnic, Gudlavalleru",
     detail:
-      "Designing and shipping reliable product surfaces across the stack, from first API contract to the last thoughtful interaction.",
+      "Currently pursuing a diploma while building hands-on projects across software development, AI, and modern web technologies.",
   },
   {
-    period: "2019 — 2022",
-    role: "Software Engineer",
-    company: "Growth-stage technology company",
+    period: "COMPLETED",
+    role: "10th Standard",
+    company: "Sri Chaitanya Techno School, Singarayakonda",
     detail:
-      "Built core platform capabilities, raised the quality bar for frontend systems, and mentored engineers through complex launches.",
-  },
-  {
-    period: "2016 — 2019",
-    role: "Engineer / curious generalist",
-    company: "Early-stage teams",
-    detail:
-      "Learned to work close to the problem: prototype quickly, listen carefully, and leave the system better than I found it.",
+      "Completed secondary education and continued developing a strong interest in technology and software creation.",
   },
 ];
 
 const stack = [
-  { label: "Frontend", value: "React · TypeScript · Next.js", icon: Code2 },
-  { label: "Backend", value: "Node.js · Go · Python", icon: Server },
-  { label: "Data", value: "Postgres · Redis · Event systems", icon: Database },
-  { label: "Systems", value: "Cloud · Containers · CI/CD", icon: Layers3 },
+  { label: "Languages", value: "C · Java · Python", icon: Code2 },
+  { label: "Web", value: "HTML5 · CSS3 · JavaScript", icon: Server },
+  { label: "Frontend", value: "React · TypeScript · Responsive UI", icon: Layers3 },
+  { label: "AI & APIs", value: "Prompt Engineering · REST Integration", icon: Database },
 ];
 
 export default function Home() {
@@ -129,7 +114,7 @@ export default function Home() {
       <header className="site-nav">
         <a className="brand-mark" href="#top" onClick={closeMenu} aria-label="Back to top">
           <span className="brand-glyph">⌘</span>
-          <span>yourname<span className="brand-dot">.</span>dev</span>
+          <span>varunashwin<span className="brand-dot">.</span>dev</span>
         </a>
 
         <button
@@ -167,14 +152,15 @@ export default function Home() {
               <span className="status-dot" />
               <span>Available for thoughtful work</span>
             </div>
-            <p className="hero-kicker reveal-up delay-1">Software engineer · systems thinker</p>
+            <p className="hero-kicker reveal-up delay-1">Diploma student · software development · AI & web technologies</p>
             <h1 id="hero-title" className="hero-title reveal-up delay-2">
-              I build products
-              <span className="hero-title-accent"> people can trust.</span>
+              I build useful
+              <span className="hero-title-accent"> technology that helps.</span>
             </h1>
             <p className="hero-intro reveal-up delay-3">
-              I&apos;m Your Name, an engineer who enjoys turning ambiguous problems into clear, durable software — with a soft spot for sharp interfaces and resilient systems.
+              I&apos;m Dvauluri Varun Ashwin Chowdary, a motivated and enthusiastic Diploma student with a strong interest in software development, artificial intelligence, and modern web technologies.
             </p>
+            <div className="hero-facts reveal-up delay-3"><span><strong>Phone</strong> 7382419396</span><span><strong>Languages</strong> English · Telugu · Hindi</span></div>
             <div className="hero-actions reveal-up delay-4">
               <a className="button button-primary" href="#work">
                 Explore selected work <ArrowDown size={17} />
@@ -184,9 +170,9 @@ export default function Home() {
               </a>
             </div>
             <div className="hero-meta reveal-up delay-4">
-              <span><MapPin size={15} /> Based in Bengaluru · working globally</span>
+              <span><MapPin size={15} /> Ramanadhapuram, Andhra Pradesh</span>
               <span className="meta-divider" />
-              <span><Terminal size={15} /> Currently building what&apos;s next</span>
+              <span><Terminal size={15} /> React · TypeScript · JavaScript · Git · GitHub</span>
             </div>
           </div>
 
@@ -203,15 +189,15 @@ export default function Home() {
               <span className="console-lock">● live</span>
             </div>
             <div className="console-body">
-              <div className="code-line code-comment">// a small snapshot of how I work</div>
-              <div className="code-line"><span className="code-keyword">const</span> <span className="code-name">engineer</span> <span className="code-punctuation">=</span> <span className="code-bracket">&#123;</span></div>
-              <div className="code-line code-indent"><span className="code-property">focus</span><span className="code-punctuation">:</span> <span className="code-string">&quot;clarity over cleverness&quot;</span><span className="code-punctuation">,</span></div>
-              <div className="code-line code-indent"><span className="code-property">strength</span><span className="code-punctuation">:</span> <span className="code-string">&quot;turning unknowns into systems&quot;</span><span className="code-punctuation">,</span></div>
-              <div className="code-line code-indent"><span className="code-property">default</span><span className="code-punctuation">:</span> <span className="code-string">&quot;leave it better&quot;</span><span className="code-punctuation">,</span></div>
+              <div className="code-line code-comment">// a small snapshot of what I&apos;m building</div>
+              <div className="code-line"><span className="code-keyword">const</span> <span className="code-name">developer</span> <span className="code-punctuation">=</span> <span className="code-bracket">&#123;</span></div>
+              <div className="code-line code-indent"><span className="code-property">focus</span><span className="code-punctuation">:</span> <span className="code-string">&quot;software + AI + web&quot;</span><span className="code-punctuation">,</span></div>
+              <div className="code-line code-indent"><span className="code-property">strength</span><span className="code-punctuation">:</span> <span className="code-string">&quot;practical problem-solving&quot;</span><span className="code-punctuation">,</span></div>
+              <div className="code-line code-indent"><span className="code-property">default</span><span className="code-punctuation">:</span> <span className="code-string">&quot;learn quickly, build clearly&quot;</span><span className="code-punctuation">,</span></div>
               <div className="code-line"><span className="code-bracket">&#125;</span><span className="code-punctuation">;</span></div>
               <div className="console-divider" />
-              <div className="console-output"><span className="prompt">$</span> <span>ship --with-care</span><span className="cursor" /></div>
-              <div className="console-success"><Check size={14} /> build ready · no shortcuts detected</div>
+              <div className="console-output"><span className="prompt">$</span> <span>build --for-real-world-problems</span><span className="cursor" /></div>
+              <div className="console-success"><Check size={14} /> ready to learn · ready to contribute</div>
             </div>
             <div className="console-orbit orbit-one" />
             <div className="console-orbit orbit-two" />
@@ -231,13 +217,13 @@ export default function Home() {
         <section className="section-pad about-section" id="about" aria-labelledby="about-title">
           <div className="section-heading">
             <p className="section-index">01 / ABOUT</p>
-            <h2 id="about-title">Good software is a team sport.</h2>
+            <h2 id="about-title">Learning quickly. Building practically.</h2>
           </div>
           <div className="about-grid">
             <div className="about-lede">
-              <p className="large-copy">I like the part where a messy idea becomes a shared understanding — then a useful product.</p>
-              <p>My best work lives at the intersection of product, design, and engineering. I ask a lot of questions, make complexity visible, and care about the details that make software feel calm to use.</p>
-              <a className="text-link" href="#contact">More about my approach <ArrowUpRight size={16} /></a>
+              <p className="large-copy">Motivated and enthusiastic Diploma student with a strong interest in software development, artificial intelligence, and modern web technologies.</p>
+              <p>Hands-on experience building interactive web applications and AI-focused projects, with practical knowledge of React, TypeScript, JavaScript, APIs, Git, and GitHub. Skilled in prompt engineering, problem-solving, responsive UI development, API integration, and learning new tools quickly.</p>
+              <p>Passionate about transforming real-world problems into practical, user-focused technology solutions and continuously improving technical knowledge through project-based learning.</p>
             </div>
             <div className="stack-card">
               <div className="stack-card-header"><span className="mini-label">CURRENT TOOLKIT</span><Braces size={18} /></div>
@@ -247,14 +233,20 @@ export default function Home() {
                   return <div className="stack-row" key={item.label}><span className="stack-icon"><Icon size={17} /></span><span><strong>{item.label}</strong><small>{item.value}</small></span><ArrowUpRight size={15} /></div>;
                 })}
               </div>
+              <div className="resume-notes">
+                <div><span>TOOLS & TECHNOLOGIES</span><p>Visual Studio Code · GitHub · GitHub Copilot · React · TypeScript · Vite · REST APIs · AI Development Tools</p></div>
+                <div><span>SOFT SKILLS</span><p>Communication · Leadership · Teamwork · Quick Learning · Problem Solving · Adaptability · Time Management</p></div>
+                <div><span>CERTIFICATIONS</span><p>Generative AI – EduPyramids · Soft Skills – EduPyramids · Computer Hardware Basics – EduPyramids</p></div>
+                <div><span>LANGUAGES</span><p>English – Primary · Telugu – Secondary · Hindi – Secondary</p></div>
+              </div>
             </div>
           </div>
         </section>
 
         <section className="section-pad work-section" id="work" aria-labelledby="work-title">
           <div className="section-heading section-heading-row">
-            <div><p className="section-index">02 / SELECTED WORK</p><h2 id="work-title">A few things I&apos;ve shipped.</h2></div>
-            <span className="section-note">Selected projects · 2020—24</span>
+              <div><p className="section-index">02 / SELECTED WORK</p><h2 id="work-title">Aether Weather — a practical project.</h2></div>
+            <span className="section-note">Selected project · 2024</span>
           </div>
           <div className="project-grid">
             {projects.map((project) => (
@@ -263,6 +255,7 @@ export default function Home() {
                 <div className="project-visual" aria-hidden="true"><div className="visual-rings"><span /><span /><span /></div><div className="visual-code"><span>01</span><span>10</span><span>01</span><span>11</span><span>00</span><span>10</span></div></div>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+                {project.details && <ul className="project-details">{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>}
                 <div className="tag-row">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
               </article>
             ))}
@@ -271,9 +264,9 @@ export default function Home() {
         </section>
 
         <section className="section-pad experience-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-heading"><p className="section-index">03 / EXPERIENCE</p><h2 id="experience-title">The path so far.</h2></div>
+          <div className="section-heading"><p className="section-index">03 / EXPERIENCE</p><h2 id="experience-title">Learning and building so far.</h2></div>
           <div className="experience-layout">
-            <div className="experience-intro"><Sparkles size={23} /><p>Every role has taught me a different way to make software useful. Here are the chapters that shaped how I work today.</p><a className="button button-secondary" href="#contact">Download résumé <Download size={16} /></a></div>
+            <div className="experience-intro"><Sparkles size={23} /><p>To begin a career in software development, AI, or web technologies where I can apply my technical skills, contribute to meaningful projects, gain industry experience, and continuously grow as a technology professional.</p><a className="button button-secondary" href="/manus-storage/Dvauluri_Varun_Ashwin_Chowdary_Resume_09334a77.docx" download="Dvauluri_Varun_Ashwin_Chowdary_Resume.docx">Download exact résumé <Download size={16} /></a></div>
             <div className="timeline">
               {experiences.map((item) => <article className="timeline-item" key={item.period}><div className="timeline-marker"><span /></div><div className="timeline-period">{item.period}</div><div><h3>{item.role}</h3><p className="timeline-company">{item.company}</p><p className="timeline-detail">{item.detail}</p></div></article>)}
             </div>
@@ -282,13 +275,13 @@ export default function Home() {
 
         <section className="section-pad contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-panel">
-            <div className="contact-copy"><p className="section-index">04 / CONTACT</p><h2 id="contact-title">Let&apos;s make something <span>worth making.</span></h2><p>I&apos;m always open to a thoughtful conversation about a product, a tricky system, or a team that cares about the craft.</p></div>
-            <div className="contact-actions"><a className="button button-primary button-large" href="mailto:hello@yourname.dev">Say hello <Mail size={17} /></a><div className="social-links"><a href="https://github.com/your-handle" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer"><Linkedin size={17} /> LinkedIn</a></div></div>
+            <div className="contact-copy"><p className="section-index">04 / CONTACT</p><h2 id="contact-title">Let&apos;s build something <span>useful.</span></h2><p>To begin a career in software development, AI, or web technologies where I can apply my technical skills, contribute to meaningful projects, gain industry experience, and continuously grow as a technology professional.</p><p className="declaration">I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.</p></div>
+            <div className="contact-actions"><a className="button button-primary button-large" href="mailto:varunashwin072@gmail.com">Say hello <Mail size={17} /></a><div className="social-links"><a href="tel:7382419396"><Mail size={17} /> 7382419396</a><a href="mailto:varunashwin072@gmail.com"><Mail size={17} /> varunashwin072@gmail.com</a><span className="social-link-item"><Linkedin size={17} /> LinkedIn: Varun Ashwin</span></div></div>
           </div>
         </section>
       </main>
 
-      <footer className="site-footer"><span>© 2024 Your Name. Built with intention.</span><span className="footer-status"><span className="status-dot" /> system status: quietly shipping</span><a href="#top">Back to top ↑</a></footer>
+      <footer className="site-footer"><span>© 2024 Dvauluri Varun Ashwin Chowdary. Built with intention.</span><span className="footer-status"><span className="status-dot" /> system status: learning and shipping</span><a className="footer-resume" href="/manus-storage/Dvauluri_Varun_Ashwin_Chowdary_Resume_09334a77.docx" download="Dvauluri_Varun_Ashwin_Chowdary_Resume.docx">Download résumé ↓</a><a href="#top">Back to top ↑</a></footer>
     </div>
   );
 }
