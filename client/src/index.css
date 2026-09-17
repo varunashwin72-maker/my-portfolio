@@ -188,3 +188,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 
 .footer-resume { color: var(--accent); }
 .footer-resume:hover { color: #e0ff8c; }
+
+.contact-form { display: grid; gap: 12px; width: min(100%, 370px); }
+.contact-form label { display: grid; gap: 6px; color: #91a08e; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: .04em; text-transform: uppercase; }
+.contact-form input, .contact-form textarea { width: 100%; border: 1px solid rgba(213, 231, 206, .18); border-radius: 0; background: rgba(9, 13, 10, .5); color: var(--foreground); padding: 12px 13px; font: 13px/1.4 "Space Grotesk", sans-serif; outline: none; transition: border-color 180ms ease, background 180ms ease; }
+.contact-form textarea { resize: vertical; min-height: 100px; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #5d6b5b; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); background: rgba(201, 243, 91, .05); }
+.contact-form .button { justify-self: start; margin-top: 4px; }
+.form-status { margin: 0; color: var(--accent); font-family: "IBM Plex Mono", monospace; font-size: 10px; }
+@media (max-width: 680px) { .contact-form { width: 100%; } .contact-form .button { width: 100%; } .cursor-glow, .site-shell::before { display: none; } .hero-console { transform: none !important; } .project-details { font-size: 10px; } }

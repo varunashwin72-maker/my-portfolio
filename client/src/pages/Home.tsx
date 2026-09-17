@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -17,6 +17,7 @@ import {
   Menu,
   Server,
   Sparkles,
+  Send,
   Terminal,
   X,
 } from "lucide-react";
@@ -75,6 +76,8 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const [contactStatus, setContactStatus] = useState("");
+  const pointerFrame = useRef<number | null>(null);
 
   useEffect(() => {
     const sections = ["top", ...navItems.map((item) => item.href.slice(1))]
@@ -97,15 +100,34 @@ export default function Home() {
 
   useEffect(() => {
     const handlePointerMove = (event: PointerEvent) => {
-      setPointer({ x: event.clientX, y: event.clientY });
       document.documentElement.style.setProperty("--pointer-x", `${event.clientX}px`);
       document.documentElement.style.setProperty("--pointer-y", `${event.clientY}px`);
+      if (pointerFrame.current !== null) return;
+      pointerFrame.current = window.requestAnimationFrame(() => {
+        setPointer({ x: event.clientX, y: event.clientY });
+        pointerFrame.current = null;
+      });
     };
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    return () => window.removeEventListener("pointermove", handlePointerMove);
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+      if (pointerFrame.current !== null) window.cancelAnimationFrame(pointerFrame.current);
+    };
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get("name") ?? "").trim();
+    const email = String(form.get("email") ?? "").trim();
+    const message = String(form.get("message") ?? "").trim();
+    const subject = `Portfolio message from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    setContactStatus("Opening your email app…");
+    window.location.href = `mailto:varunashwin072@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   return (
     <div className="site-shell" id="top">
@@ -276,7 +298,16 @@ export default function Home() {
         <section className="section-pad contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-panel">
             <div className="contact-copy"><p className="section-index">04 / CONTACT</p><h2 id="contact-title">Let&apos;s build something <span>useful.</span></h2><p>To begin a career in software development, AI, or web technologies where I can apply my technical skills, contribute to meaningful projects, gain industry experience, and continuously grow as a technology professional.</p><p className="declaration">I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.</p></div>
-            <div className="contact-actions"><a className="button button-primary button-large" href="mailto:varunashwin072@gmail.com">Say hello <Mail size={17} /></a><div className="social-links"><a href="tel:7382419396"><Mail size={17} /> 7382419396</a><a href="mailto:varunashwin072@gmail.com"><Mail size={17} /> varunashwin072@gmail.com</a><span className="social-link-item"><Linkedin size={17} /> LinkedIn: Varun Ashwin</span></div></div>
+            <div className="contact-actions">
+              <form className="contact-form" onSubmit={handleContactSubmit}>
+                <label><span>Your name</span><input name="name" type="text" autoComplete="name" placeholder="Your name" required /></label>
+                <label><span>Your email</span><input name="email" type="email" autoComplete="email" placeholder="you@example.com" required /></label>
+                <label><span>Message</span><textarea name="message" rows={4} placeholder="Tell me a little about what you’re building…" required /></label>
+                <button className="button button-primary button-large" type="submit">Open email app <Send size={17} /></button>
+                {contactStatus && <p className="form-status" role="status">{contactStatus}</p>}
+              </form>
+              <div className="social-links"><a href="tel:7382419396"><Mail size={17} /> 7382419396</a><a href="mailto:varunashwin072@gmail.com"><Mail size={17} /> varunashwin072@gmail.com</a><span className="social-link-item"><Linkedin size={17} /> LinkedIn: Varun Ashwin</span></div>
+            </div>
           </div>
         </section>
       </main>
