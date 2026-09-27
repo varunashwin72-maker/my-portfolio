@@ -45,6 +45,7 @@ const projects = [
     ],
     tags: ["React", "TypeScript", "REST APIs"],
     accent: "lime",
+    url: "https://aetherweather72vercelapp.vercel.app/",
   },
 ];
 
@@ -278,7 +279,7 @@ export default function Home() {
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
                 {project.details && <ul className="project-details">{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>}
-                <div className="tag-row">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
+                <div className="tag-row">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}{project.url && <a className="tag tag-link" href={project.url} target="_blank" rel="noreferrer">Live demo <ExternalLink size={11} /></a>}</div>
               </article>
             ))}
           </div>
@@ -306,7 +307,7 @@ export default function Home() {
                 <button className="button button-primary button-large" type="submit">Open email app <Send size={17} /></button>
                 {contactStatus && <p className="form-status" role="status">{contactStatus}</p>}
               </form>
-              <div className="social-links"><a href="tel:7382419396"><Mail size={17} /> 7382419396</a><a href="mailto:varunashwin072@gmail.com"><Mail size={17} /> varunashwin072@gmail.com</a><span className="social-link-item"><Linkedin size={17} /> LinkedIn: Varun Ashwin</span></div>
+              <div className="social-links"><a href="tel:7382419396"><Mail size={17} /> 7382419396</a><a href="mailto:varunashwin072@gmail.com"><Mail size={17} /> varunashwin072@gmail.com</a><a href="https://github.com/varunashwin72-maker" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a><a href="https://www.linkedin.com/in/varun-ashwin-903175362/" target="_blank" rel="noreferrer"><Linkedin size={17} /> LinkedIn</a></div>
             </div>
           </div>
         </section>
