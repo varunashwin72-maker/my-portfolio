@@ -67,10 +67,16 @@ const experiences = [
 ];
 
 const stack = [
-  { label: "Languages", value: "C · Java · Python", icon: Code2 },
-  { label: "Web", value: "HTML5 · CSS3 · JavaScript", icon: Server },
-  { label: "Frontend", value: "React · TypeScript · Responsive UI", icon: Layers3 },
-  { label: "AI & APIs", value: "Prompt Engineering · REST Integration", icon: Database },
+  { label: "Languages", value: "Core programming", items: ["C", "Java", "Python"], icon: Code2 },
+  { label: "Web", value: "Browser foundations", items: ["HTML5", "CSS3", "JavaScript"], icon: Server },
+  { label: "Frontend", value: "Interfaces & components", items: ["React", "TypeScript", "Responsive UI"], icon: Layers3 },
+  { label: "AI & APIs", value: "Connected experiences", items: ["Prompt Engineering", "REST APIs", "API Integration"], icon: Database },
+];
+const profileGroups = [
+  { label: "Tools & technologies", items: ["VS Code", "GitHub", "GitHub Copilot", "Vite", "REST APIs", "AI tools"] },
+  { label: "Soft skills", items: ["Communication", "Leadership", "Teamwork", "Quick learning", "Problem solving", "Adaptability"] },
+  { label: "Certifications", items: ["Generative AI", "Soft Skills", "Computer Hardware Basics"] },
+  { label: "Languages", items: ["English · Primary", "Telugu · Secondary", "Hindi · Secondary"] },
 ];
 
 export default function Home() {
@@ -249,18 +255,15 @@ export default function Home() {
               <p>Passionate about transforming real-world problems into practical, user-focused technology solutions and continuously improving technical knowledge through project-based learning.</p>
             </div>
             <div className="stack-card">
-              <div className="stack-card-header"><span className="mini-label">CURRENT TOOLKIT</span><Braces size={18} /></div>
+              <div className="stack-card-header"><div><span className="mini-label">CURRENT TOOLKIT</span><small className="stack-card-caption">A practical stack, growing every day</small></div><Braces size={18} /></div>
               <div className="stack-list">
                 {stack.map((item) => {
                   const Icon = item.icon;
-                  return <div className="stack-row" key={item.label}><span className="stack-icon"><Icon size={17} /></span><span><strong>{item.label}</strong><small>{item.value}</small></span><ArrowUpRight size={15} /></div>;
+                  return <div className="stack-row" key={item.label}><div className="stack-row-heading"><span className="stack-icon"><Icon size={17} /></span><span><strong>{item.label}</strong><small>{item.value}</small></span><ArrowUpRight size={15} /></div><div className="skill-pills">{item.items.map((skill) => <span className="skill-pill" key={skill}>{skill}</span>)}</div></div>;
                 })}
               </div>
-              <div className="resume-notes">
-                <div><span>TOOLS & TECHNOLOGIES</span><p>Visual Studio Code · GitHub · GitHub Copilot · React · TypeScript · Vite · REST APIs · AI Development Tools</p></div>
-                <div><span>SOFT SKILLS</span><p>Communication · Leadership · Teamwork · Quick Learning · Problem Solving · Adaptability · Time Management</p></div>
-                <div><span>CERTIFICATIONS</span><p>Generative AI – EduPyramids · Soft Skills – EduPyramids · Computer Hardware Basics – EduPyramids</p></div>
-                <div><span>LANGUAGES</span><p>English – Primary · Telugu – Secondary · Hindi – Secondary</p></div>
+              <div className="profile-grid">
+                {profileGroups.map((group) => <div className="profile-group" key={group.label}><span className="profile-label">{group.label}</span><div className="profile-pills">{group.items.map((item) => <span className="profile-pill" key={item}>{item}</span>)}</div></div>)}
               </div>
             </div>
           </div>
