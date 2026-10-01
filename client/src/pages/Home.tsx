@@ -286,6 +286,22 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <article className="project-case-study" aria-labelledby="aether-case-study-title">
+            <div className="case-study-copy">
+              <p className="section-index">PROJECT DEEP DIVE / 01</p>
+              <h3 id="aether-case-study-title">A weather dashboard designed for clarity.</h3>
+              <p className="case-study-lede">Aether Weather turns live conditions into a calm, visual overview that is easy to scan at a glance and useful for everyday planning.</p>
+              <div className="case-study-columns">
+                <div><span>CORE EXPERIENCE</span><p>Location search, real-time conditions, hourly forecast, weather insights, precipitation, wind direction, and sun & moon details.</p></div>
+                <div><span>BUILD NOTES</span><p>Built with React, TypeScript, JavaScript, REST API integration, responsive layouts, and component-based UI development.</p></div>
+              </div>
+              <a className="button button-secondary" href="https://aetherweather72vercelapp.vercel.app/" target="_blank" rel="noreferrer">Open live project <ExternalLink size={16} /></a>
+            </div>
+            <figure className="case-study-shot">
+              <img src="/manus-storage/aether-weather-dashboard_4bf0039c.webp" alt="Aether Weather dashboard showing current conditions and hourly forecast" loading="lazy" decoding="async" />
+              <figcaption><span>LIVE SNAPSHOT</span> New York · current conditions + next 24 hours</figcaption>
+            </figure>
+          </article>
           <div className="work-footer"><span>Want the longer version?</span><a className="text-link" href="#contact">Ask me for a walkthrough <ArrowUpRight size={16} /></a></div>
         </section>
 
