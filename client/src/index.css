@@ -270,3 +270,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .case-study-gallery .case-study-shot { min-width: 0; }
 .case-study-gallery .case-study-shot img { aspect-ratio: 16 / 9; object-fit: cover; object-position: center top; }
 @media (max-width: 680px) { .case-study-gallery { gap: 14px; } }
+
+/* Slightly larger supporting type in the Current Toolkit card */
+.stack-card-caption { font-size: 11px; }
+.stack-row small { font-size: 12px; }
+.skill-pill, .profile-pill { font-size: 10px; }
+@media (max-width: 680px) {
+  .stack-card-caption { font-size: 10px; }
+  .stack-row small { font-size: 11px; }
+  .skill-pill, .profile-pill { font-size: 9px; }
+}
