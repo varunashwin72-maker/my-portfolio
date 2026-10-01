@@ -299,11 +299,11 @@ export default function Home() {
             </div>
             <div className="case-study-gallery">
               <figure className="case-study-shot">
-                <img src="/manus-storage/aether-weather-dashboard_4bf0039c.webp" alt="Aether Weather dashboard showing current conditions and hourly forecast" loading="lazy" decoding="async" />
+                <img src="https://raw.githubusercontent.com/varunashwin72-maker/my-portfolio/main/assets/aether-weather-dashboard.webp" alt="Aether Weather dashboard showing current conditions and hourly forecast" loading="lazy" decoding="async" />
                 <figcaption><span>LIVE SNAPSHOT</span> New York · current conditions + next 24 hours</figcaption>
               </figure>
               <figure className="case-study-shot">
-                <img src="/manus-storage/aether-weather-rain-state_27b20f38.png" alt="Aether Weather rain-state dashboard with precipitation forecast" loading="lazy" decoding="async" />
+                <img src="https://raw.githubusercontent.com/varunashwin72-maker/my-portfolio/main/assets/aether-weather-rain-state.png" alt="Aether Weather rain-state dashboard with precipitation forecast" loading="lazy" decoding="async" />
                 <figcaption><span>RAIN STATE</span> Live precipitation view · forecast at a glance</figcaption>
               </figure>
             </div>
